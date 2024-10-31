@@ -1,7 +1,6 @@
 <script>
     import axios from 'axios';
     
-
     export default{
         name:'MainView',
         data(){
@@ -17,20 +16,23 @@
            this.GetData();
         },
         methods:{
+            //取得資料
             async GetData(){
+                //發送API前先開啟loading動畫
                 this.loading = true;
                 await axios.get('http://postitnote.com.tw/api/PostIt/Get')
                 .then(response =>{
                     const result = response;
                     this.postIt = response.data;
+                    //關閉loading動畫
                     this.loading = false;
-                    console.log(result);
                 }).catch(error =>{
                     console.log('error', error);
                 }).finally(() => {
                     console.log('完成');
                 })
             },
+            //新增便利貼
             async AddPost(){
                 try{
                     const response = await axios.post('http://postitnote.com.tw/api/PostIt/Post', this.formData, {
@@ -52,14 +54,13 @@
                     backdrop.parentNode.removeChild(backdrop);
                     }
 
-                    //重新整理畫面
-                    //location.reload();
+                    //重新取得資料
                     this.GetData();
                 }catch(error){
                     console.error('Error sending POST request:', error);
                 }
             },
-
+            //移除便利貼
             async RemovePost(id){
                 try{
                     const response = await axios.put('http://postitnote.com.tw/api/PostIt/Put/'+id,  {
@@ -68,7 +69,6 @@
                         },
                     });
                     //重新整理畫面
-                    //location.reload();
                     this.GetData();
                 }catch(error){
                     console.error('Error sending Put request:', error);

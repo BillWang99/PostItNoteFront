@@ -10,14 +10,17 @@
             }
         },
         methods:{
+            //發API取得資料
             GetData(){
+                //發送前先開啟loading動畫
                 this.loading = true;
                 axios.get('http://postitnote.com.tw/api/PostIt/AllDeletePost')
                 .then(response =>{
                     const result = response;
+                    //將資料寫入postIt物件
                     this.postIt = response.data;
+                    //關閉loading動畫
                     this.loading = false;
-                    console.log(result);
                 }).catch(error =>{
                     console.log('error', error);
                 }).finally(() => {
@@ -25,6 +28,7 @@
                 })
             },
 
+            //還原移除的便利貼
             async rollbackPost(id){
                 try{
                     const response = await axios.put('http://postitnote.com.tw/api/PostIt/RollBack/'+id,  {
@@ -39,6 +43,7 @@
                 }
             },
 
+            //將移除的便利貼刪除
             async deletePost(id){
                 try{
                     const response = await axios.delete('http://postitnote.com.tw/api/PostIt/Delete/'+id,  {
@@ -54,6 +59,7 @@
             }
         },
         mounted(){
+            //模板掛載完成，透過API取得資料
             this.GetData();
         },
     }
@@ -63,7 +69,7 @@
     <!--loading-->
     <div class="loader" v-if="loading"></div>
 
-
+    <!--便利貼列表-->
     <table class="table" v-if="!loading">
         <thead>
             <tr>

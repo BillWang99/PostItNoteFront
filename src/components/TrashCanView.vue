@@ -9,12 +9,16 @@
             }
         },
         components:{
+            //使用元件TrashPostTable動態取得列表狀態
             TrashPostTable,
         },
         methods:{
+            //重新整理元件資料
             refreshData(){
+                //使用子元件的function
                 this.$refs.child.GetData();
             },
+            //關閉視窗時重新整理畫面
             reloadPage(){
                 location.reload();
             },
