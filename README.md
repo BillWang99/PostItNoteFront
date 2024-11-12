@@ -28,8 +28,11 @@
 #使用專案教學
   1.將專案clone至local端後，利用terminal進入專案目錄
 
-  2.輸入npm run dev可檢視專案執行狀態
+  2.輸入npm run dev可檢視專案執行狀態(如未架設API，會於首頁顯示loading動畫)
 
   3.如果要打包專案則輸入npm run build
 
-  ....未完待續
+  4.以IIS發佈為例，須將IIS站台路徑指向專案的dist資料夾
+
+....未完待補
+ 
