@@ -28,6 +28,9 @@
   ## 展示影片
   [https://youtu.be/TY4g_hepVYs](https://youtu.be/TY4g_hepVYs)
 
+  ## 此專案的API(後端部分)
+  [https://github.com/BillWang99/PostItNoteBack.git](https://github.com/BillWang99/PostItNoteBack.git)
+
 
 
  
