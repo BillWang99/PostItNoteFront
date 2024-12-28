@@ -23,7 +23,11 @@
     從回收桶復原便利貼
 
   **5.刪除便利貼(delete)**
-    將便利貼從回收桶永久刪除
+    將便利貼從回收桶永久刪除   
+
+  ## 展示影片
+  [https://youtu.be/TY4g_hepVYs](https://youtu.be/TY4g_hepVYs)
+
 
 
  
